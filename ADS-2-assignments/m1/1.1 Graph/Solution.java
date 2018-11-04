@@ -37,8 +37,8 @@ public final class Solution {
                 graph.addEdge(Integer.parseInt(tokens[0]),
                     Integer.parseInt(tokens[1]));
             }
-            System.out.println(graph.numberofVertices() + " vertices, " +
-                graph.numberofEdges() + " edges");
+            System.out.println(graph.numberofVertices() + " vertices, "
+                + graph.numberofEdges() + " edges");
             if (graph.numberofEdges() == 0) {
                 System.out.println("No edges");
                 break;

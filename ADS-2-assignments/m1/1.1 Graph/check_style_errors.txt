@@ -8,6 +8,5 @@ Starting audit...
 Audit done.
 Starting audit...
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m1\1.1 Graph\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m1\1.1 Graph\Solution.java:40:73: '+' should be on a new line. [OperatorWrap]
 Audit done.
-Checkstyle ends with 2 errors.
+Checkstyle ends with 1 errors.
