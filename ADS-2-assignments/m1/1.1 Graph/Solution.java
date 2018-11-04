@@ -23,7 +23,8 @@ public final class Solution {
         int vertices = scan.nextInt();
         int edges = scan.nextInt();
         scan.nextLine();
-        LinearProbingHashST<Integer, String> hashst = new LinearProbingHashST<>();
+        LinearProbingHashST<Integer, String> hashst = new 
+        LinearProbingHashST<>();
         String[] places = scan.nextLine().split(",");
         for (int i = 0; i < places.length; i++) {
             hashst.put(i, places[i]);
@@ -33,9 +34,11 @@ public final class Solution {
             Graph graph = new Graph(vertices);
             while (scan.hasNext()) {
                 String[] tokens = scan.nextLine().split(" ");
-                graph.addEdge(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]));
+                graph.addEdge(Integer.parseInt(tokens[0]), 
+                    Integer.parseInt(tokens[1]));
             }
-            System.out.println(graph.numberofVertices() + " vertices, " + graph.numberofEdges() + " edges");
+            System.out.println(graph.numberofVertices() + " vertices, " + 
+                graph.numberofEdges() + " edges");
             if (graph.numberofEdges() == 0) {
                 System.out.println("No edges");
                 break;
@@ -53,9 +56,11 @@ public final class Solution {
             AdjMatrixGraph matrixgraph = new AdjMatrixGraph(vertices);
             while (scan.hasNext()) {
                 String[] tokens1 = scan.nextLine().split(" ");
-                matrixgraph.addEdge(Integer.parseInt(tokens1[0]), Integer.parseInt(tokens1[1]));
+                matrixgraph.addEdge(Integer.parseInt(tokens1[0]), 
+                    Integer.parseInt(tokens1[1]));
             }
-            System.out.println(matrixgraph.numberofVertices() + " vertices, " + matrixgraph.numberofEdges() + " edges");
+            System.out.println(matrixgraph.numberofVertices() + " vertices, " 
+                + matrixgraph.numberofEdges() + " edges");
             if (matrixgraph.numberofEdges() == 0) {
                 System.out.println("No edges");
                 break;
