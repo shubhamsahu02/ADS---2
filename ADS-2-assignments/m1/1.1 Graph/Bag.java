@@ -64,6 +64,10 @@ public class Bag<Item> implements Iterable<Item> {
       * Time complesxity is constant as each statement is executed only once
       *@param item of item type
       */
+    public void add(final Item item) {
+        Node oldfirst = first;
+        first = new Node();
+    }
     /**.
       * Return an iterator that iterates over the items in the bag.
       * @return Listiterator
