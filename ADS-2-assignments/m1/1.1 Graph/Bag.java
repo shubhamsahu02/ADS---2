@@ -67,6 +67,9 @@ public class Bag<Item> implements Iterable<Item> {
     public void add(final Item item) {
         Node oldfirst = first;
         first = new Node();
+        first.item = item;
+        first.next = oldfirst;
+        numberofelementinbag++;
     }
     /**.
       * Return an iterator that iterates over the items in the bag.
