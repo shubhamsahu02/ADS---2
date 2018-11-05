@@ -41,8 +41,8 @@ public class Bipartite {
         }
         //assert check(graph);
     }
-    /**Time complexity is degree(V) as it checks number of adjacent
-     *vertices for given vertex 
+    /**Time complexity is degree(V) as it checks number of adjacent.
+     *vertices for given vertex
      * runs dfs
      *
      * @param      graph1  The graph 1

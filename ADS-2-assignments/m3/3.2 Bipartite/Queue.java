@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Compilation:  javac Queue.java
  *  Execution:    java Queue < input.txt
- *  Data files:   http://algs4.cs.princeton.edu/13stacks/tobe.txt  
+ *  Data files:   http://algs4.cs.princeton.edu/13stacks/tobe.txt
  *
  *  A generic queue, implemented using a linked list.
  *
