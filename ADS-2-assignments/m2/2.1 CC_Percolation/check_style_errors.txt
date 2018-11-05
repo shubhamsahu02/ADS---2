@@ -7,11 +7,8 @@ Starting audit...
 Audit done.
 Checkstyle ends with 1 errors.
 Starting audit...
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m2\2.1 CC_Percolation\Percolation.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m2\2.1 CC_Percolation\Percolation.java:13: Line is longer than 80 characters (found 83). [LineLength]
 Audit done.
-Checkstyle ends with 2 errors.
-Starting audit...
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m2\2.1 CC_Percolation\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
-Audit done.
 Checkstyle ends with 1 errors.
+Starting audit...
+Audit done.
