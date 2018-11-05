@@ -55,4 +55,3 @@ class Percolation {
         return d.hasPathTo(size * size + 1);
     }
 }
-
