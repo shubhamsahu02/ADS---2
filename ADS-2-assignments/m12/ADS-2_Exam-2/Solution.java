@@ -66,7 +66,8 @@ public final class Solution {
 
         case "ViaPaths":
             // Handle the case of ViaPaths, where three integers are given.
-            // First is the source and second is the via is the one where path should pass through.
+            // First is the source and second is the via,
+            // is the one where path should pass through.
             // Third is the destination.
             // If the path exists print the distance between them.
             // Other wise print "No Path Found."
@@ -78,3 +79,6 @@ public final class Solution {
 
     }
 }
+
+
+
