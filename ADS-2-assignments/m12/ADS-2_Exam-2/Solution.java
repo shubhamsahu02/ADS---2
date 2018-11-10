@@ -71,6 +71,8 @@ public final class Solution {
             // Third is the destination.
             // If the path exists print the distance between them.
             // Other wise print "No Path Found."
+            final String[] token = scan.nextLine().split(" ");
+            final int source2 = Integer.parseInt(token[0]);
             break;
 
         default:
