@@ -31,8 +31,8 @@ public class Solution {
 			// If the path exists print the distance between them.
 			// Other wise print "No Path Found."
 			String[] tokens = scan.nextLine().split(" ");
-			int source = Integer.parseInt(tokens[1]);
-			int destination = Integer.parseInt(tokens[2]);
+			int source = Integer.parseInt(tokens[0]);
+			int destination = Integer.parseInt(tokens[1]);
    	        DijkstraUndirectedSP dijkstraObj = new DijkstraUndirectedSP(edgeweight, source);
    	        double distBetween = dijkstraObj.distTo(destination);
    	        System.out.println(distBetween);
