@@ -13,7 +13,7 @@ public class Solution {
 			String[] tokens = scan.nextLine().split(" ");
 			int vert = Integer.parseInt(tokens[0]);
 			int edg = Integer.parseInt(tokens[1]);
-			double weight = Double.parseDouble(tokens[1]);
+			double weight = Double.parseDouble(tokens[2]);
 			Edge edgeObj = new Edge(vert, edg, weight);
 			edgeweight.addEdge(edgeObj);
 		}
