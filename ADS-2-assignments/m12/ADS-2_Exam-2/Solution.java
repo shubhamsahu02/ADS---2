@@ -1,5 +1,23 @@
+/**
+ *importing scanner class.
+ */
 import java.util.Scanner;
+/**
+ * Class for solution.
+ */
 public class Solution {
+/**
+  * Constructs the object.
+  */
+	private Solution() {
+    // unused constructor
+    }
+    
+    /**
+     * { function_description }.
+     *
+     * @param      args  The arguments
+     */
 
 	public static void main(String[] args) {
 		// Self loops are not allowed...
