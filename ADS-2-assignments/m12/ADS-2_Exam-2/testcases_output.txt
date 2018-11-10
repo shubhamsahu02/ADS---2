@@ -51,7 +51,8 @@ Expected Output:
 No Path Found.
 
 Your Output: 
-
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 2
+	at Solution.main(Solution.java:35)
 ----------------------------------------
 
 ########## Testcase 3: Failed ##########
@@ -59,7 +60,8 @@ Expected Output:
 370.0
 
 Your Output: 
-
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 2
+	at Solution.main(Solution.java:35)
 ----------------------------------------
 
 ########## Testcase 4: Failed ##########

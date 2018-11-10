@@ -20,7 +20,7 @@ public class Solution {
 		String caseToGo = scan.nextLine();
 		switch (caseToGo) {
 		case "Graph":
-			//Print the Graph Object.
+			//Prints the Graph Object.
 
 			System.out.println(edgeweight);
 			break;
@@ -30,12 +30,18 @@ public class Solution {
 			// First is the source and second is the destination.
 			// If the path exists print the distance between them.
 			// Other wise print "No Path Found."
+			String[] tokens = scan.nextLine().split(" ");
+			int source = Integer.parseInt(tokens[0]);
+			int destination = Integer.parseInt(tokens[2]);
+   	        DijkstraUndirectedSP dijkstraObj = new DijkstraUndirectedSP(edgeweight, source);
+   	        double distBetween = dijkstraObj.distTo(destination);
+   	        System.out.println(distBetween);
 			break;
 
 		case "ViaPaths":
 			// Handle the case of ViaPaths, where three integers are given.
-			// First is the source and second is the via is the one where path should pass throuh.
-			// third is the destination.
+			// First is the source and second is the via is the one where path should pass through.
+			// Third is the destination.
 			// If the path exists print the distance between them.
 			// Other wise print "No Path Found."
 			break;
