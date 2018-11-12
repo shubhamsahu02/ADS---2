@@ -33,5 +33,8 @@ final class Solution {
                                Double.parseDouble(tokens[2]));
             graph.addEdge(edgeObj);
         }
-}
+        KruskalMST kruskalmst = new KruskalMST(graph);
+        double result = kruskalmst.weight();
+        System.out.format("%.5f", +result);
+    }
 }
