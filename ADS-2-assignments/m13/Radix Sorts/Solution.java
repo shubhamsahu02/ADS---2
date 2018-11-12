@@ -13,9 +13,8 @@ final class Solution {
 
     }
     /**.
-     * main method to perform operations.
-     * Time complexity of this method is O(E).
-     * E is number of edges.
+     * Main method to perform operations.
+     * Time complexity of this method is O(N).
      *
      * @param      args  The arguments
      */
@@ -23,7 +22,7 @@ final class Solution {
         Scanner scan = new Scanner(System.in);
         int numberof = Integer.parseInt(scan.nextLine());
         String[] a = new String[numberof];
-        for (int i =0; i < numberof; i++) {
+        for (int i = 0; i < numberof; i++) {
             a[i] = scan.nextLine();
         }
         int b = a[0].length();
