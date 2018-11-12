@@ -30,9 +30,7 @@ Starting audit...
 Audit done.
 Checkstyle ends with 28 errors.
 Starting audit...
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\Edge.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 Audit done.
-Checkstyle ends with 1 errors.
 Starting audit...
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\EdgeWeightedGraph.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 Audit done.
@@ -40,7 +38,6 @@ Checkstyle ends with 1 errors.
 Starting audit...
 Audit done.
 Starting audit...
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\MinPQ.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\MinPQ.java:4: Missing a Javadoc comment. [JavadocType]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\MinPQ.java:5:5: Missing a Javadoc comment. [JavadocVariable]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\MinPQ.java:6:5: Missing a Javadoc comment. [JavadocVariable]
@@ -123,7 +120,7 @@ Starting audit...
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\MinPQ.java:221:9: Missing a Javadoc comment. [JavadocMethod]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\MinPQ.java:222: 'if' construct must use '{}'s. [NeedBraces]
 Audit done.
-Checkstyle ends with 82 errors.
+Checkstyle ends with 81 errors.
 Starting audit...
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\Queue.java:5: Line has trailing spaces. [RegexpSingleline]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\Queue.java:9: Line has trailing spaces. [RegexpSingleline]
@@ -161,9 +158,7 @@ Starting audit...
 Audit done.
 Checkstyle ends with 33 errors.
 Starting audit...
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 Audit done.
-Checkstyle ends with 1 errors.
 Starting audit...
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\Stack.java:13: Line has trailing spaces. [RegexpSingleline]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m7\1. MST\Stack.java:14: Line has trailing spaces. [RegexpSingleline]
