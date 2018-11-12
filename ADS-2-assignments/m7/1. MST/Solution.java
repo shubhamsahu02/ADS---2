@@ -26,6 +26,12 @@ final class Solution {
         Edge edgeObj;
         EdgeWeightedGraph graph
             = new EdgeWeightedGraph(vertices);
-
-    }
+        for (int i = 0; i < edges; i++) {
+            String[] tokens = scan.nextLine().split(" ");
+            edgeObj = new Edge(Integer.parseInt(tokens[0]),
+                               Integer.parseInt(tokens[1]),
+                               Double.parseDouble(tokens[2]));
+            graph.addEdge(edgeObj);
+        }
+}
 }
