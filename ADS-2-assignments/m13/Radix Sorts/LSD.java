@@ -24,10 +24,10 @@ public class LSD {
       * @param a the array to be sorted
       * @param w the number of characters per string
       */
-    public static void sort(String[] a, int w) {
+    public static void sort(final String[] a, final int w) {
         int n = a.length;
         result = a;
-        int R = 256;   // extend ASCII alphabet size
+        final int R = 256;   // extend ASCII alphabet size
         String[] aux = new String[n];
 
         for (int d = w - 1; d >= 0; d--) {
