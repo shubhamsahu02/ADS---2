@@ -1,6 +1,4 @@
 Starting audit...
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m13\Radix Sorts\LSD.java:19:28: Variable 'result' must be private and have accessor methods. [VisibilityModifier]
 Audit done.
-Checkstyle ends with 1 errors.
 Starting audit...
 Audit done.

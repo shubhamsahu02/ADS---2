@@ -16,7 +16,7 @@ public class LSD {
      /**.
       * result string.
       */
-    public static String[] result;
+    private static String[] result;
 
     /**
       * Rearranges the array of W-character strings in ascending order.
