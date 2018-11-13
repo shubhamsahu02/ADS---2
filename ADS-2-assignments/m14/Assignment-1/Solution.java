@@ -1,4 +1,4 @@
-mport java.util.Scanner;
+import java.util.Scanner;
 /**
  Solution class.
  */
@@ -10,13 +10,12 @@ final class Solution {
       //unused.
 	}
 	/**
-	 * main method.
+	 * Main method.
 	 * @param args String.
 	 */
 	public static void main(final String[] args) {
 		String[] words = loadWords();
 		//Your code goes here...
-		// System.out.println(Arrays.toString(words));
 		TST tst = new TST();
 		Scanner sc = new Scanner(System.in);
 		String inp = sc.nextLine();
