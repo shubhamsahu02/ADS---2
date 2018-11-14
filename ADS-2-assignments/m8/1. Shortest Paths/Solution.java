@@ -28,6 +28,14 @@ public final class Solution {
         for (int i = 0; i < stations.length; i++) {
             hashst.put(stations[i], i);
         }
-
+        EdgeWeightedGraph edgeweightedgraph =
+            new EdgeWeightedGraph(vertices);
+        for (int i = 0; i < edges; i++) {
+            String[] tokens1 = scan.nextLine().split(" ");
+            Edge edge = new Edge(hashst.get(tokens1[0]),
+                                 hashst.get(tokens1[1]),
+                                 Double.parseDouble(tokens1[2]));
+            edgeweightedgraph.addEdge(edge);
+        }
+        }
     }
-}
