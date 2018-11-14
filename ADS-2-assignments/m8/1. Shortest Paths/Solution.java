@@ -37,5 +37,5 @@ public final class Solution {
                                  Double.parseDouble(tokens1[2]));
             edgeweightedgraph.addEdge(edge);
         }
-        }
     }
+}
