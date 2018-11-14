@@ -37,5 +37,13 @@ public final class Solution {
                                  Double.parseDouble(tokens1[2]));
             edgeweightedgraph.addEdge(edge);
         }
+        int queris = Integer.parseInt(scan.nextLine());
+        for (int i = 0; i < queris; i++) {
+            String[] tokens2 = scan.nextLine().split(" ");
+            DijkstraSP dijkstrasp =
+                new DijkstraSP(edgeweightedgraph, hashst.get(tokens2[0]));
+            System.out.println((int) dijkstrasp.distTo(
+                                    hashst.get(tokens2[1])));
+        }
     }
 }
