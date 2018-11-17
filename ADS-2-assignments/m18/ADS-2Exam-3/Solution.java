@@ -89,7 +89,7 @@ public class Solution {
 		// your code goes here
 		String[] dict = toReadFile(file);
 		for (int i = 0; i < dict.length; i++) {
-			String str = dict[i];
+			String str = dict[i].toLowerCase();
 			if (st.contains(str)) {
 				st.put(str , st.get(str) + 1);
 			} else {
