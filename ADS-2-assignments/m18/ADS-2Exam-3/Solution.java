@@ -92,6 +92,8 @@ public class Solution {
 			String str = dict[i];
 			if (st.contains(str)) {
 				st.put(str , st.get(str) + 1);
+			} else {
+				st.put(str, 1);
 			}
 		}
 		return st;
