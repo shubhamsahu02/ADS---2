@@ -154,6 +154,9 @@ class T9 {
                     number = number + "9";
                 }
             }
+            if (number.equals(t9Signature)) {
+                arrlist.add(each);
+            }
                     }
         return arrlist;
 	}
