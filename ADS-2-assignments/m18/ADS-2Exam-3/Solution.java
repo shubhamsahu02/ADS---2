@@ -139,7 +139,20 @@ class T9 {
                 if (ch.equals("j") || ch.equals("k") || ch.equals("l")) {
                     number = number + "5";
                 }
-
+                if (ch.equals("m") || ch.equals("n") || ch.equals("o")) {
+                    number = number + "6";
+                }
+                if (ch.equals("p") || ch.equals("q") || ch.equals("r")
+                        || ch.equals("s")) {
+                    number = number + "7";
+                }
+                if (ch.equals("t") || ch.equals("u") || ch.equals("v")) {
+                    number = number + "8";
+                }
+                if (ch.equals("w") || ch.equals("x") || ch.equals("y")
+                        || ch.equals("z")) {
+                    number = number + "9";
+                }
             }
                     }
         return arrlist;
