@@ -8,7 +8,7 @@ public final class Solution {
      * Constructs the object.
      */
     private Solution() {
-        
+    
         //empty constructor.
     }
     // Don't modify this method.
