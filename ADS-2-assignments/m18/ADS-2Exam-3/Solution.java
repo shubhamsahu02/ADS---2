@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Solution {
 
 	// Don't modify this method.
@@ -85,9 +84,16 @@ public class Solution {
 		return in.readAllStrings();
 	}
 
-	public static BinarySearchST<String, Integer> loadDictionary(String file) {
+	public static BinarySearchST<String, Integer> loadDictionary(final String file) {
 		BinarySearchST<String, Integer>  st = new BinarySearchST<String, Integer>();
 		// your code goes here
+		String[] dict = toReadFile(file);
+		for (int i = 0; i < dict.length; i++) {
+			String str = dict[i];
+			if (st.contains(str)) {
+				st.put(str , st.get(str) + 1);
+			}
+		}
 		return st;
 	}
 
