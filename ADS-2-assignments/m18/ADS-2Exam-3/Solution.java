@@ -122,7 +122,27 @@ class T9 {
 
 	public Iterable<String> potentialWords(String t9Signature) {
 		// your code goes here
-		return null;
+		        ArrayList<String> arrlist = new ArrayList<>();
+        for (String each : tst.keys()) {
+            String[] strarr = each.split("");
+            String number = "";
+            for (String ch : strarr) {
+                if (ch.equals("a") || ch.equals("b") || ch.equals("c")) {
+                    number = number + "2";
+                }
+                if (ch.equals("d") || ch.equals("e") || ch.equals("f")) {
+                    number = number + "3";
+                }
+                if (ch.equals("g") || ch.equals("h") || ch.equals("i")) {
+                    number = number + "4";
+                }
+                if (ch.equals("j") || ch.equals("k") || ch.equals("l")) {
+                    number = number + "5";
+                }
+
+            }
+                    }
+        return arrlist;
 	}
 
 	// return all possibilities(words), find top k with highest frequency.
