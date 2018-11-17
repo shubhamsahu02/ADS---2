@@ -103,8 +103,13 @@ public class Solution {
 
 class T9 {
 
+	private TST<Integer> tst;
+
 	public T9(BinarySearchST<String, Integer> st) {
 		// your code goes here
+		tst = new TST<>();
+		for (String eachWord : st.keys()) {
+		}
 	}
 
 	// get all the prefixes that match with given prefix.
