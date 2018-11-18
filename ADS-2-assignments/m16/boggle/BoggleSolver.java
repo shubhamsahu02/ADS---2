@@ -1,55 +1,100 @@
+import java.util.HashSet;
+/**
+ * Class for boggle solver.
+ */
 public class BoggleSolver {
-	// Initializes the data structure using the given array of strings as the dictionary.
-	// (You can assume each word in the dictionary contains only the uppercase letters A through Z.)
-	public BoggleSolver(String[] dictionary) {
-		TST<Integer> tst = new TST<>();
-		int score = 0;
-		for (int i = 0; i < dictionary.length; i++) {
-			if (dictionary[i].length() ==0 || dictionary[i].length()==1 || dictionary[i].length() ==2) {
-				score = 0;
-			}
+    // Initializes the data structure using
+    // the given array of strings as the dictionary.
+    // (You can assume each word in the dictionary
+    // contains only the uppercase letters A through Z.)
+    private TrieSET dict;
+    public BoggleSolver(String[] dictionary) {
+        dict = new TrieSET();
+        for (String word : dictionary) {
+            dict.add(word);
+        }
+    }
 
-			else if (dictionary[i].length() == 3 || dictionary[i].length() == 4) {
-				score = 1;
-			}
+    // Returns the set of all valid words in the given Boggle board, as an Iterable.
+    public Iterable<String> getAllValidWords(BoggleBoard board) {
+        if (board == null) {
+            throw new NullPointerException("board is null");
+        }
 
-			else if (dictionary[i].length() == 5) {
-				score  = 2;
-			}
+        HashSet<String> validWords = new HashSet<String>();
 
-			else if (dictionary[i].length() == 6) {
-				score = 3;
-			}
+        int r = board.rows();
+        int c = board.cols();
 
-			else if (dictionary[i].length() == 7) {
-				score = 5;
-			}
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                boolean[][] visited = new boolean[r][c];
+                collect(board, i, j, visited, "", validWords);
+            }
+        }
+        return validWords;
+    }
+    private void collect(BoggleBoard board, int row, int col, boolean[][] visited, String prefix, HashSet<String> set) {
+        if (visited[row][col]) {
+            return;
+        }
 
-			else if (dictionary[i].length() == 8) {
-				score = 11;
-			}
-			else {
-				score = 0;
-			}
-			tst.put(dictionary[i], score);
-		}
+        char letter = board.getLetter(row, col);
+        String word = prefix;
 
-	}
+        if (letter == 'Q') {
+            word += "QU";
+        } else {
+            word += letter;
+        }
 
-	// Returns the set of all valid words in the given Boggle board, as an Iterable.
-	public Iterable<String> getAllValidWords(BoggleBoard board) {
-		return new Bag<String>();
-	}
+        if (!dict.hasPrefix(word)) {
+            return;
+        }
 
-	// Returns the score of the given word if it is in the dictionary, zero otherwise.
-	// (You can assume the word contains only the uppercase letters A through Z.)
-	public int scoreOf(String word) {
-		TST<Integer> tst = new TST<>();
-		if(tst.contains(word)) {
-			return tst.get(word);
-		}
-		else {
-			return 0;
-		}
-	}
+        if (word.length() > 2 && dict.contains(word)) {
+            set.add(word);
+        }
+
+        visited[row][col] = true;
+
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (i == 0 && j == 0) {
+                    continue;
+                }
+
+                if ((row + i >= 0) && (row + i < board.rows()) && (col + j >= 0) && (col + j < board.cols())) {
+                    collect(board, row + i, col + j, visited, word, set);
+                }
+            }
+        }
+
+        visited[row][col] = false;
+    }
+    // Returns the score of the given word if it is in the dictionary, zero otherwise.
+    // (You can assume the word contains only the uppercase letters A through Z.)
+    public int scoreOf(String word) {
+        if (dict.contains(word)) {
+            switch (word.length()) {
+            case 0:
+            case 1:
+            case 2:
+                return 0;
+            case 3:
+            case 4:
+                return 1;
+            case 5:
+                return 2;
+            case 6:
+                return 3;
+            case 7:
+                return 5;
+            default:
+                return 11;
+            }
+        } else {
+            return 0;
+        }
+    }
 }
