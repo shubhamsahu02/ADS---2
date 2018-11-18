@@ -3,11 +3,13 @@ import java.util.Arrays;
 /**
  * Class for solution.
  */
+
 public class Solution {
 
 	/**
 	 * Constructs the object.
 	 */
+
 	private Solution() {
 		// empty constructor
 	}
@@ -15,8 +17,9 @@ public class Solution {
 	/**
 	 * Main method.
 	 *
-	 * @param      args  The arguments
+	 * @param      args  The arguments 
 	 */
+
 	public static void main(final String[] args) {
 		String caseType = StdIn.readLine();
 		switch (caseType) {
@@ -31,6 +34,8 @@ public class Solution {
 			int score = 0;
 			for (String word : solver.getAllValidWords(board)) {
 				score += solver.scoreOf(word);
+				System.out.println("words ..."+ word + " Score is : " + score);
+
 			}
 			StdOut.println("Score = " + score);
 			break;
