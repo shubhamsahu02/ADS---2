@@ -141,6 +141,9 @@ final class Solution {
                     String file = scan.nextLine();
                     seamCarver = new SeamCarver(new Picture("/Files/" + file));
                     int[] horizontalSeam = seamCarver.findHorizontalSeam();
+                    seamCarver.removeHorizontalSeam(horizontalSeam);
+                    int[] verticalSeam = seamCarver.findVerticalSeam();
+                    seamCarver.removeVerticalSeam(verticalSeam);
                     printEnergies("/Files/" + file);
                 }
                 break;
