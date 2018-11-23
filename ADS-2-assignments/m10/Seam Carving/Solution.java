@@ -112,6 +112,16 @@ final class Solution {
                     System.out.println(Arrays.toString(
                         seamCarver.findHorizontalSeam()));
                 }
+                break;
+
+            case "removeVerticalSeam":
+                while (scan.hasNextLine()) {
+                    String file = scan.nextLine();
+                    seamCarver = new SeamCarver(new Picture("/Files/" + file));
+                    int[] verticalSeam = seamCarver.findVerticalSeam();
+                    seamCarver.removeVerticalSeam(verticalSeam);
+                    printSeam(seamCarver, verticalSeam, false);
+                }
 
             default:
                 seamCarver = new SeamCarver(null);
@@ -122,6 +132,3 @@ final class Solution {
         }
     }
 }
-
-
-
