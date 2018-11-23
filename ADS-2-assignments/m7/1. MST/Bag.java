@@ -34,6 +34,7 @@ public class Bag<Item> implements Iterable<Item> {
         private Node next;
     }
 
+
     /**.
       * Create an empty stack.
       */
