@@ -1,0 +1,39 @@
+warning: LF will be replaced by CRLF in ADS-2-assignments/m20/Runlength - 1/BinaryIn.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in ADS-2-assignments/m20/Runlength - 1/BinaryOut.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in ADS-2-assignments/m20/Runlength - 1/BinaryStdIn.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in ADS-2-assignments/m20/Runlength - 1/BinaryStdOut.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in ADS-2-assignments/m20/Runlength - 1/HexDump.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in ADS-2-assignments/m20/Runlength - 1/StdOut.java.
+The file will have its original line endings in your working directory.
+[master ccf34c7] "ads2_m20_ba1_1: 0/0 testcases passed. Cannot run hidden testcases as Server is unreachablecheck_style score: 0/1 "
+ 22 files changed, 2098 insertions(+)
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/1runs.bin
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/4runs.bin
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/BinaryIn.class
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/BinaryIn.java
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/BinaryOut.class
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/BinaryOut.java
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/BinaryStdIn.class
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/BinaryStdIn.java
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/BinaryStdOut.class
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/BinaryStdOut.java
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/HexDump.class
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/HexDump.java
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/RunLength.docx
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/RunLength.java
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/StdOut.class
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/StdOut.java
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/check_style_errors.txt
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/git_output.txt
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/md5/problem_id.txt
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/q32x48.bin
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/testcases/problem_id.txt
+ create mode 100644 ADS-2-assignments/m20/Runlength - 1/testcases_output.txt
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+To https://github.com/shubhamsahu02/ADS-2.git
+   3b72a88..ccf34c7  master -> master
