@@ -47,7 +47,8 @@ public final class Solution {
                             "IllegalArgumentException");
                     }
                     System.out.println("distance = " + wnq.distance(strarr[0],
-                                       strarr[1]) + ", ancestor = " + wnq.sap(strarr[0],
+                                       strarr[1]) 
+                    + ", ancestor = " + wnq.sap(strarr[0],
                                                strarr[1]));
                 }
             } catch (Exception e) {
