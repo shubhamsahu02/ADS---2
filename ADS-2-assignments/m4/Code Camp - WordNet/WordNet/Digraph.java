@@ -49,8 +49,8 @@ public class Digraph {
      * @param      G     { parameter_description }
      */
     public Digraph(final Digraph g) {
-        this(G.vertices());
-        this.edges = G.edges();
+        this(g.vertices());
+        this.edges = g.edges();
         for (int v = 0; v < vertices; v++) {
             this.indegree[v] = g.indegree(v);
         }

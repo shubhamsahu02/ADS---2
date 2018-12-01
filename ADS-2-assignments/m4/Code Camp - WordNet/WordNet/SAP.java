@@ -13,7 +13,11 @@ public class SAP {
 
     /**
     * constructor takes a digraph (not necessarily a DAG).
+     * @param     dgg     { parameter_description }
+     * @param     dgg   { parameter_description }
+     *
     **/
+    
     public SAP(final Digraph dgg) {
         this.dg = new Digraph(dgg);
         bfs = new BreadthFirstDirectedPaths[this.dg.vertices()];
@@ -177,3 +181,6 @@ public class SAP {
         return ancestor;
     }
 }
+
+
+

@@ -255,8 +255,8 @@ Checkstyle ends with 53 errors.
 Starting audit...
 Audit done.
 Starting audit...
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\SAP.java:0: File does not end with a newline. [NewlineAtEndOfFile]
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\SAP.java:17:30: Expected @param tag for 'dgg'. [JavadocMethod]
+[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\SAP.java:17:8: Unused @param tag for 'dgg'. [JavadocMethod]
+[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\SAP.java:20: Line has trailing spaces. [RegexpSingleline]
 Audit done.
 Checkstyle ends with 2 errors.
 Starting audit...
