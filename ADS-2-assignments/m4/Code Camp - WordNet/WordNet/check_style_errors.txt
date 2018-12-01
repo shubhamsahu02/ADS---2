@@ -245,16 +245,13 @@ Starting audit...
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:164:29: '8' is a magic number. [MagicNumber]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:164:40: '/' is not preceded with whitespace. [WhitespaceAround]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:164:41: '/' is not followed by whitespace. [WhitespaceAround]
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:178: 'for' construct must use '{}'s. [NeedBraces]
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:179: 'if' construct must use '{}'s. [NeedBraces]
-[ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:185:5: Missing a Javadoc comment. [JavadocMethod]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:188:18: '*' is not preceded with whitespace. [WhitespaceAround]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:188:19: '*' is not followed by whitespace. [WhitespaceAround]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:189: Line is longer than 80 characters (found 85). [LineLength]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:195: 'if' construct must use '{}'s. [NeedBraces]
 [ERROR] C:\Users\shubh\OneDrive\Desktop\MSIT\1st Year\ADS-2\ADS-2-assignments\m4\Code Camp - WordNet\WordNet\LinearProbingHashST.java:197: Line is longer than 80 characters (found 104). [LineLength]
 Audit done.
-Checkstyle ends with 56 errors.
+Checkstyle ends with 53 errors.
 Starting audit...
 Audit done.
 Starting audit...

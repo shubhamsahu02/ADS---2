@@ -173,12 +173,12 @@ public class LinearProbingHashST<Key, Value> {
      *
      * @return all keys in this symbol table
      */
-    public Iterable<Key> keys() {
-        Queue<Key> queue = new Queue<Key>();
-        for (int i = 0; i < m; i++)
-            if (keys[i] != null) queue.enqueue(keys[i]);
-        return queue;
-    }
+    // public Iterable<Key> keys() {
+    //     Queue<Key> queue = new Queue<Key>();
+    //     for (int i = 0; i < m; i++)
+    //         if (keys[i] != null) queue.enqueue(keys[i]);
+    //     return queue;
+    // }
 
     // integrity check - don't check after each put() because
     // integrity not maintained during a delete()
