@@ -1,88 +1,168 @@
+/**
+ * wordnet.
+ */
+import java.util.ArrayList;
+/**
+ * Class for word net.
+ */
 public class WordNet {
-    LinearProbingHashST<String, Integer> ht;
-    Digraph graph;
-    private int processSynsets(String synsets) {
-        In in = new In(synsets);
-        int count = 0;
-        ht = new LinearProbingHashST<String, Integer>();
-        while (!in.isEmpty()) {
-            String[] tokens = in.readLine().split(",");
-            String[] nouns = tokens[1].split(" ");
-            for (String noun : nouns) {
-                ht.put(noun, Integer.parseInt(tokens[0]));
+    /**
+     * declaration of ST.
+     */
+    private LinearProbingHashST<String, ArrayList<Integer>> nounST;
+    /**
+     * declaration of ST.
+     */
+    private LinearProbingHashST<Integer, String> idST;
+    /**
+     * declaration of digraph.
+     */
+    private Digraph dg;
+    /**
+     * declaration of SAP.
+     */
+    private SAP sap;
+
+    /**
+     * Gets the dg.
+     *
+     * @return     The dg.
+     */
+    public Digraph getDg() {
+        return this.dg;
+    }
+    /**
+     * Constructs the object.
+     *
+     * @param      synsets    The synsets
+     * @param      hypernyms  The hypernyms
+     */
+    public WordNet(final String synsets, final String hypernyms) {
+        nounST = new LinearProbingHashST<String, ArrayList<Integer>>();
+        idST = new LinearProbingHashST<Integer, String>();
+        try {
+            In in = new In("./Files/" + synsets);
+            int id = 0;
+            while (!in.isEmpty()) {
+
+                String line = in.readLine();
+
+                assert !line.equals("");
+
+                String[] tokens = line.split(",");
+                id = Integer.parseInt(tokens[0]);
+                String[] nouns = tokens[1].split(" ");
+
+                ArrayList<String> nounsList = new ArrayList<String>();
+                for (String noun : nouns) {
+                    nounsList.add(noun);
+                }
+                idST.put(id, tokens[1]);
+
+                for (String noun : nouns) {
+                    if (nounST.contains(noun)) {
+                        nounST.get(noun).add(id);
+                    } else {
+                        ArrayList<Integer> s = new ArrayList<Integer>();
+                        s.add(id);
+                        nounST.put(noun, s);
+                    }
+                }
             }
-            count++;
-        }
-        return count;
-    }
-    private Digraph buildGraph(String hypernyms, int count) {
-        Digraph graph = new Digraph(count);
-        In in = new In(hypernyms);
-        while (!in.isEmpty()) {
-            String[] tokens = in.readLine().split(",");
-            for (int i = 1; i < tokens.length; i++) {
-                graph.addEdge(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[i]));
+
+            //Hypernyms
+            assert id != 1;
+            this.dg = new Digraph(id + 1);
+
+            in = new In("./Files/" + hypernyms);
+            while (!in.isEmpty()) {
+                String line = in.readLine();
+                String[] tokens = line.split(",");
+                // if (tokens.length > 2) {
+                //     throw new IllegalArgumentException("Multiple roots");
+                // }
+                int synsetIds = Integer.parseInt(tokens[0]);
+
+                for (int i = 1; i < tokens.length; i++) {
+                    dg.addEdge(synsetIds, Integer.parseInt(tokens[i]));
+                }
             }
+
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        return graph;
-    }
-    private boolean multipleRoot(Digraph graph) {
-        int count = 0;
-        for (int i=0;i<graph.numberofVertices();i++) {
-            if (graph.outdegree(i) == 0) {
-                count++;
-            }           
-        }
-        if (count == 1) {
-            return true;            
-        }
-        return false;
+        //graph built
+        sap = new SAP(dg);
     }
 
-    public void printGraph() {
-        //System.out.println(graph.numberofVertices()+"vertices, "+graph.numberofEdges()+" edges" )
-        DirectedCycle directedcycle = new DirectedCycle(graph);
-        if (directedcycle.hasCycle()) {
-            System.out.println("Cycle detected");
-            return;
+    /**
+     * display output.
+     */
+    public void display() {
+        DirectedCycle dc = new DirectedCycle(dg);
+        if (dc.hasCycle()) {
+            throw new IllegalArgumentException("Cycle detected");
+        } else if (dg.noOfOutdegree() > 1) {
+            throw new IllegalArgumentException("Multiple roots");
+        } else {
+            System.out.println(dg.toString());
         }
-        else if (!multipleRoot(graph)) {
-            System.out.println("Multiple roots");
-        }
-        else
-        System.out.println(graph);
     }
-
-    // constructor takes the name of the two input files
-    public WordNet(String synsets, String hypernyms) {
-        int count = processSynsets(synsets);
-        graph = buildGraph(hypernyms, count);
-        //printGraph();
-        //System.out.println("Count = " + count);
-    }
-
-    // returns all WordNet nouns
+    /**
+     * return nouns.
+     *
+     * @return     { description_of_the_return_value }
+     */
     public Iterable<String> nouns() {
-        return ht.keys();
+        return nounST.keys();
     }
-
-    // is the word a WordNet noun?
-    public boolean isNoun(String word) {
-        return ht.contains(word);
+    /**
+     * Determines if noun.
+     *
+     * @param      word  The word
+     *
+     * @return     True if noun, False otherwise.
+     */
+    public boolean isNoun(final String word) {
+        return nounST.contains(word);
     }
-    // distance between nounA and nounB (defined below)
-    public int distance(String nounA, String nounB) {
-        return 0; 
+    /**
+     * checks the distance.
+     *
+     * @param      nounA  The noun a
+     * @param      nounB  The noun b
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int distance(final String nounA, final String nounB) {
+        if (!isNoun(nounA) || !isNoun(nounB)) {
+            throw new IllegalArgumentException();
+        }
+        ArrayList<Integer> idsA = nounST.get(nounA);
+        ArrayList<Integer> idsB = nounST.get(nounB);
+
+        return sap.length(idsA, idsB);
     }
+    /**
+     * ancestor path.
+     *
+     * @param      nounA  The noun a
+     * @param      nounB  The noun b
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public String sap(final String nounA, final String nounB) {
+        if (!isNoun(nounA) || !isNoun(nounB)) {
+            throw new IllegalArgumentException();
+        }
+        ArrayList<Integer> idsA = nounST.get(nounA);
+        ArrayList<Integer> idsB = nounST.get(nounB);
 
-    // a synset (second field of synsets.txt) that is the common ancestor of nounA and nounB
-    // in a shortest ancestral path (defined below)
-    public String sap(String nounA, String nounB) {
-        return null;
+        int anc = sap.ancestor(idsA, idsB);
+        return idST.get(anc);
     }
-
-    // do unit testing of this class
-    // public static void main(String[] args) {
-
-    // }
 }
+
+
+

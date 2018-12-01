@@ -1,58 +1,179 @@
+/**
+ * Class for sap.
+ */
 public class SAP {
+    /**
+     * { var_description }.
+     */
+    private Digraph dg;
+    /**
+     * { var_description }.
+     */
+    private BreadthFirstDirectedPaths[] bfs;
 
-    Digraph graph;
-    int ancestor;
-    int distance;
-    BreadthFirstDirectedPaths bfsV;
-    BreadthFirstDirectedPaths bfsW;
-
-    // constructor takes a digraph (not necessarily a DAG)
-    public SAP(Digraph graph) {
-        this.graph = graph;
-        ancestor = -1;
-        distance = Integer.MAX_VALUE;
+    /**
+    * constructor takes a digraph (not necessarily a DAG).
+    **/
+    public SAP(final Digraph dgg) {
+        this.dg = new Digraph(dgg);
+        bfs = new BreadthFirstDirectedPaths[this.dg.vertices()];
     }
 
-    // length of shortest ancestral path between v and w; -1 if no such path
-    public int length(int v, int w) {
-        return (distance == Integer.MAX_VALUE) ? -1 : distance;
-    }
+    /**
+     * length of shortest ancestral path between v and w.
+     * -1 if no such path
+     *
+     * @param      v     { parameter_description }
+     * @param      w     { parameter_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int length(final int v, final int w) {
+        // if (v < 0 || v > dg.vertices() - 1) {
+        //     throw new IndexOutOfBoundsException();
+        // }
 
-    // a common ancestor of v and w that participates in a shortest ancestral path; -1 if no such path
-    public int ancestor(int v, int w) {
-        bfsV = new BreadthFirstDirectedPaths(graph, v);
-        bfsW = new BreadthFirstDirectedPaths(graph, w);
-        distance = Integer.MAX_VALUE;
-        for (int e = 0; e < graph.numberofVertices(); e++) {
-            if (bfsV.hasPathTo(e) && bfsW.hasPathTo(e)) {
-                if (distance >= (bfsV.distTo(e) + bfsW.distTo(e))) {
-                    distance = bfsV.distTo(e) + bfsW.distTo(e);
-                    ancestor = e;
+        // if (w < 0 || w > dg.vertices() - 1) {
+        //     throw new IndexOutOfBoundsException();
+        // }
+
+        if (bfs[v] == null) {
+            bfs[v] = new BreadthFirstDirectedPaths(dg, v);
+        }
+
+        if (bfs[w] == null) {
+            bfs[w] = new BreadthFirstDirectedPaths(dg, w);
+        }
+
+        int length = Integer.MAX_VALUE;
+        // System.out.println(length);
+
+        for (int i = 0; i < dg.vertices(); i++) {
+            if (bfs[v].hasPathTo(i) && bfs[w].hasPathTo(i)) {
+                int l = bfs[v].distTo(i) + bfs[w].distTo(i);
+                if (l < length) {
+                    length = l;
                 }
             }
         }
+
+        // save memory
+        bfs[v] = null;
+        bfs[w] = null;
+
+        if (length != Integer.MAX_VALUE) {
+            return length;
+        } else {
+            return -1;
+        }
+    }
+
+    /**
+     * a common ancestor of v and w that participates in a shortest ancestral.
+     * path; -1 if no such path
+     *
+     * @param      v     { parameter_description }
+     * @param      w     { parameter_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int ancestor(final int v, final int w) {
+        // if (v < 0 || v > dg.vertices() - 1) {
+        //     throw new IndexOutOfBoundsException();
+        // }
+
+        // if (w < 0 || w > dg.vertices() - 1) {
+        //     throw new IndexOutOfBoundsException();
+        // }
+
+        if (bfs[v] == null) {
+            bfs[v] = new BreadthFirstDirectedPaths(dg, v);
+        }
+
+        if (bfs[w] == null) {
+            bfs[w] = new BreadthFirstDirectedPaths(dg, w);
+        }
+
+        int length = Integer.MAX_VALUE;
+        int ancestor = -1;
+
+        for (int i = 0; i < dg.vertices(); i++) {
+            if (bfs[v].hasPathTo(i) && bfs[w].hasPathTo(i)) {
+                int l = bfs[v].distTo(i) + bfs[w].distTo(i);
+                if (l < length) {
+                    length = l;
+                    ancestor = i;
+                }
+            }
+        }
+
+        // save memory
+        bfs[v] = null;
+        bfs[w] = null;
+
         return ancestor;
     }
 
-    // length of shortest ancestral path between any vertex in v and any vertex in w; -1 if no such path
-    public int length(Iterable<Integer> v, Iterable<Integer> w) {
-        return (distance == Integer.MAX_VALUE)? -1 : distance;
-    }
+    /**
+     * length of shortest ancestral path between any vertex in v and any.
+     * vertex in w; -1 if no such path
+     *
+     * @param      v     { parameter_description }
+     * @param      w     { parameter_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int length(final Iterable<Integer> v, final Iterable<Integer> w) {
+        if (v == null || w == null) {
+            throw new NullPointerException();
+        }
 
-    // a common ancestor that participates in shortest ancestral path; -1 if no such path
-    public int ancestor(Iterable<Integer> v, Iterable<Integer> w) {
-        int anc = -1;
         int length = Integer.MAX_VALUE;
-        for (int e1 : v) {
-            for (int e2 : w) {
-                int ancestor = ancestor(e1, e2);
-                if (length >= length(e1, e2)) {
-                    length = distance;
-                    anc = ancestor;
+        for (int i : v) {
+            for (int j : w) {
+                int l = length(i, j);
+                if (l != -1 && l < length) {
+                    length = l;
                 }
             }
         }
-        distance = length;
-        return anc;
+
+        assert length != -1;
+
+        if (length != Integer.MAX_VALUE) {
+            return length;
+        } else {
+            return -1;
+        }
+    }
+    /**
+     * a common ancestor that participates in shortest ancestral path.
+     * -1 if no such path
+     *
+     * @param      v     { parameter_description }
+     * @param      w     { parameter_description }
+     *
+     * @return     { description_of_the_return_value }
+     */
+    public int ancestor(final Iterable<Integer> v, final
+                        Iterable<Integer> w) {
+        if (v == null || w == null) {
+            throw new NullPointerException();
+        }
+
+        int length = Integer.MAX_VALUE;
+        int ancestor = -1;
+
+        for (int i : v) {
+            for (int j : w) {
+                int l = length(i, j);
+                if (l != -1 && l < length) {
+                    length = l;
+                    ancestor = ancestor(i, j);
+                }
+            }
+        }
+        assert length != -1;
+        return ancestor;
     }
 }

@@ -1,57 +1,53 @@
-/**.
+/**
  * Class for directed cycle.
  */
 public class DirectedCycle {
-    /**.
-     * marked[v] = has vertex v been marked?
+    /**
+     * { var_description }.
      */
     private boolean[] marked;
-    /**.
-     * edgeTo[v] = previous vertex on path to v
+    /**
+     * { var_description }.
      */
     private int[] edgeTo;
-    /**.
-     *  onStack[v] = is vertex on the stack?
+    /**
+     * { var_description }.
      */
     private boolean[] onStack;
-    /**.
-     * // directed cycle (or null if no such cycle)
+    /**
+     * { var_description }.
      */
     private Stack<Integer> cycle;
-    /**.
-     * Determines whether the digraph {@code G}
-     * has a directed cycle and, if so,
-     * finds such a cycle.
-     * @param digraph the digraph
+    /**
+     * Determines whether the digraph {@code G} has a directed cycle and.
+     * if so, finds such a cycle.
+     * @param gph the digraph
      */
-    public DirectedCycle(final Digraph digraph) {
-        marked  = new boolean[digraph.numberofVertices()];
-        onStack = new boolean[digraph.numberofVertices()];
-        edgeTo  = new int[digraph.numberofVertices()];
-        for (int v = 0; v < digraph.numberofVertices(); v++) {
+    public DirectedCycle(final Digraph gph) {
+        marked  = new boolean[gph.vertices()];
+        onStack = new boolean[gph.vertices()];
+        edgeTo  = new int[gph.vertices()];
+        for (int v = 0; v < gph.vertices(); v++) {
             if (!marked[v] && cycle == null) {
-                dfs(digraph, v);
+                dfs(gph, v);
             }
         }
     }
-    /**.
-     * / check that algorithm computes either the
-     *  topological order or finds a directed cycle
+    /**
+     * { function_description }.
      *
-     * @param      digraph1     { Digraph digraph1 }
-     * @param      v     { vertex of int type }
+     * @param      gph     { parameter_description }
+     * @param      v     { parameter_description }
      */
-    private void dfs(final Digraph digraph1, final int v) {
+    private void dfs(final Digraph gph, final int v) {
         onStack[v] = true;
         marked[v] = true;
-        for (int w : digraph1.adj(v)) {
-
-            // short circuit if directed cycle found
+        for (int w : gph.adj(v)) {
             if (cycle != null) {
                 return;
             } else if (!marked[w]) {
                 edgeTo[w] = v;
-                dfs(digraph1, w);
+                dfs(gph, w);
             } else if (onStack[w]) {
                 cycle = new Stack<Integer>();
                 for (int x = v; x != w; x = edgeTo[x]) {
@@ -65,32 +61,31 @@ public class DirectedCycle {
         onStack[v] = false;
     }
 
-    /**.
-     * Does the digraph have a directed cycle?
-     * Time complexity is constant as each statement is executed only once.
+    /**
+     * Does the digraph have a directed cycle?.
      * @return {@code true} if the digraph has a directed cycle,
-     *  {@code false} otherwise
+     * {@code false} otherwise
      */
     public boolean hasCycle() {
         return cycle != null;
     }
-    /**.
-     * Returns a directed cycle if the digraph has a directed cycle,
+
+    /**
+     * Returns a directed cycle if the digraph has a directed cycle.
      * and {@code null} otherwise.
-     * @return a directed cycle (as an iterable)
-     *  if the digraph has a directed cycle,
+     * @return a directed cycle (as an iterable) if the digraph has a
+     * directed cycle,
      *    and {@code null} otherwise
      */
     public Iterable<Integer> cycle() {
         return cycle;
     }
-    /**.
-     * certify that digraph has a directed cycle if it reports one
+    /**
+     * { function_description }.
      *
-     * @return     { returns true if there is a cycle }
+     * @return     { description_of_the_return_value }
      */
     private boolean check() {
-
         if (hasCycle()) {
             // verify cycle
             int first = -1, last = -1;
@@ -101,8 +96,8 @@ public class DirectedCycle {
                 last = v;
             }
             if (first != last) {
-                System.err.printf("cycle begins with %d and ends with %d\n",
-                                  first, last);
+                System.out.println("cycle begins with %d and ends with %d\n"
+                                   + first + last);
                 return false;
             }
         }
